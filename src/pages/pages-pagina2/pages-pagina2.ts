@@ -6,7 +6,82 @@ import {ModalPage} from '../modal/modal';
   templateUrl: 'pages-pagina2.html',
 })
 export class PagesPagina2Page {
-
+preguntas:any=[
+  {
+nombre:"Joel Jimenez",
+edad:20
+},
+{
+nombre:"Joel Jimenez",
+edad:20
+},
+{
+nombre:"Joel Jimenez",
+edad:20
+},
+{
+nombre:"Joel Jimenez",
+edad:20
+},
+{
+nombre:"Joel Jimenez",
+edad:20
+},
+{
+nombre:"Joel Jimenez",
+edad:20
+},
+{
+nombre:"Joel Jimenez",
+edad:20
+},
+{
+nombre:"Joel Jimenez",
+edad:20
+},
+{
+nombre:"Joel Jimenez",
+edad:20
+},{
+nombre:"Joel Jimenez",
+edad:20
+},{
+nombre:"Joel Jimenez",
+edad:20
+},{
+nombre:"Joel Jimenez",
+edad:20
+},
+{
+nombre:"Joel Jimenez",
+edad:20
+},{
+nombre:"Joel Jimenez",
+edad:20
+},{
+nombre:"Joel Jimenez",
+edad:20
+},{
+nombre:"Joel Jimenez",
+edad:20
+}
+,
+{
+nombre:"Joel Jimenez",
+edad:20
+},{
+nombre:"Joel Jimenez",
+edad:20
+},{
+nombre:"Joel Jimenez",
+edad:20
+},{
+nombre:"Joel Jimenez",
+edad:20
+}
+];
+terminado:boolean=false;
+Enproceso:boolean=false;
   constructor(public navCtrl: NavController, public navParams: NavParams, private modal:ModalController) {
   }
 
@@ -18,7 +93,7 @@ Regresar(){
 
 }
 MostrarModal(){
-  let moda=this.modal.create(ModalPage);
+  let moda=this.modal.create(ModalPage,{nombre:"joel jimenez", edad:20});
   moda.present();
 }
 

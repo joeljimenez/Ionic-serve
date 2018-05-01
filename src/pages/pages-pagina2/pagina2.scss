@@ -7,6 +7,28 @@
 
   font-weight: bold;
 }
-ion-icon{
-  font-size: 30px;
+ion-col{
+  font-size: 20px;
+}
+h4{
+  position: fixed;
+  background:#E0ECF8;
+padding: 10px;
+  z-index:1;
+  width:30%;
+  border-radius: 15px;
+}
+.juego{
+
+  padding: 5px;
+}
+.ico3{
+  color:red;
+}
+.ico2{
+  color:#0B610B;
+}
+.ico1{
+  color:#0B0B61;
+  overflow: scroll;
 }

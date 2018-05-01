@@ -2,31 +2,49 @@
 <ion-header class="cabeza">
   <ion-grid>
     <ion-row>
-      <ion-col text-center>
-        <ion-icon name="arrow-back" (click)="Regresar()">  </ion-icon>
+      <ion-col text-center (click)="Regresar()">
+        <ion-icon name="arrow-dropleft-circle" >  </ion-icon>
+        Menu Principal
       </ion-col>
       <ion-col text-center>
-        <h4>Nivel 10</h4>
+         <ion-icon ios="ios-trophy" md="md-trophy"></ion-icon>
+        Nivel 10
       </ion-col>
-      <ion-col text-center>
-        <ion-icon name="contact" (click)="MostrarModal()"></ion-icon>
+      <ion-col text-center (click)="MostrarModal()">
+       <ion-icon name="contact"></ion-icon>
+        Perfil Usuario
       </ion-col>
+
     </ion-row>
   </ion-grid>
 </ion-header>
 
-<ion-content padding class="pag2">
-  <ion-grid>
+<ion-content class="pag2">
+  <br><br><br>
+  <ion-grid class="juego">
     <ion-row>
-      <ion-col text-center>
-      a
+      <ion-col text-center >
+      <h4>Pendientes</h4>
+      
+      <ion-col *ngFor="let pre of preguntas, let i=index" class="ico1">
+           <ion-icon ios="ios-apps" md="md-apps">  {{i+1}}  </ion-icon>
+      </ion-col>
       </ion-col>
       <ion-col text-center>
-        a
+       <h4>En Proceso</h4>
+       
+       <ion-col *ngFor="let pre of preguntas, let i=index" class="ico2">
+    <ion-icon ios="ios-create" md="md-create"  *ngIf="Enproceso">  {{i+1}}  </ion-icon>
+    </ion-col>
       </ion-col>
       <ion-col text-center>
-        a
+       <h4>Terminadas</h4>
+       
+       <ion-col *ngFor="let pre of preguntas, let i=index"  class="ico3">
+         <ion-icon ios="ios-checkmark" md="md-checkmark" *ngIf="terminado">  {{i+1}}  </ion-icon>
+       </ion-col>
       </ion-col>
     </ion-row>
+
   </ion-grid>
 </ion-content>
