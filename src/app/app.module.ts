@@ -8,7 +8,7 @@ import { MyApp } from './app.component';
 //paginas
 import {PrincipalPage} from '../pages/principal/principal';
 import {Pagina1Page} from '../pages/pagina1/pagina1';
-import {Pagina2Pa} from '../pages/pagina2/pagina2';
+import {PagesPagina2Page} from '../pages/pages-pagina2/pages-pagina2';
 import {AjustesPage} from '../pages/ajustes/ajustes';
 import {Ajustes2Page} from '../pages/ajustes2/ajustes2';
 import {TabsPage} from '../pages/tabs/tabs';
@@ -18,10 +18,9 @@ import {ModalPage} from '../pages/modal/modal';
 @NgModule({
   declarations: [
     MyApp,
-
     PrincipalPage,
     Pagina1Page,
-    Pagina2Pa,
+PagesPagina2Page,
     AjustesPage,
     Ajustes2Page,
     TabsPage,
@@ -36,10 +35,9 @@ import {ModalPage} from '../pages/modal/modal';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-
     PrincipalPage,
     Pagina1Page,
-    Pagina2Pa,
+PagesPagina2Page,
     AjustesPage,
     Ajustes2Page,
     TabsPage,
