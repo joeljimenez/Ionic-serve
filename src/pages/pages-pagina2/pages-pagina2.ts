@@ -9,10 +9,16 @@ import {AjustesPage} from '../ajustes/ajustes';
 export class PagesPagina2Page {
 preguntas:any=[
   {
-nombre:"Joel Jimenez",
-edad:20,
+nombre:"¿Qué Fecha se celebra el dia de la Bandera Nacional?",
+Correcta:"4 de noviembre del 1903",
 respondida:false,
-terminada:false
+terminada:false,
+opciones:{
+  A:"1 de enero del 1990",
+  B:"4 de noviembre del 1903",
+  C:"31 de julio del 1999",
+  D:"3 de noviembre del 1990"
+}
 },
 {
   nombre:"Joel Jimenez",
@@ -136,8 +142,8 @@ MostrarModal(){
   let moda=this.modal.create(ModalPage,{nombre:"joel jimenez", edad:20});
   moda.present();
 }
-Pendientes(i:number){
-  let moda=this.modal.create(AjustesPage,{id:i});
+Pendientes(pregunta:any, id:number){
+  let moda=this.modal.create(AjustesPage,{id:id,pregunta:pregunta});
   moda.present();
 
 }

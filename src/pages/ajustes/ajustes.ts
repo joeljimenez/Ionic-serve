@@ -10,12 +10,16 @@ import {Ajustes2Page} from '../ajustes2/ajustes2';
 })
 export class AjustesPage {
 id:any=[];
+numero:number=0;
+boton:boolean=true ;
+Verificando:boolean=true;
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
    public view:ViewController,
  public alerta:AlertController) {
-     this.id=this.navParams.get("id");
-     console.log(this.id);
+     this.id=this.navParams.get("pregunta");
+     this.numero=this.navParams.get("id")
+     console.log(this.id, this.numero);
   }
 
   ionViewDidLoad() {
@@ -52,7 +56,16 @@ Repasar(){
 }
 
 Aceptar(){
+  this.Verificando=false;
+setTimeout(()=>{
+  this.Verificando=true;
   this.id.terminada=true;
     this.view.dismiss();
+},3000)
+
+}
+habilitar(){
+  this.boton=false;
+  console.log(this.boton);
 }
 }

@@ -1,17 +1,64 @@
 
 <ion-content padding>
-<h3>Pregunta {{id.nombre}}</h3>
-<button ion-button color="primary" (click)="Aceptar()">
+<h3 text-center >Pregunta # {{numero+1}}</h3>
+<hr>
+<div class="invalida" text-center >
+  <ion-icon ios="ios-close" md="md-close">  La Respuesta Es Invalida</ion-icon>
 
-  Aceptar
-</button>
-<button ion-button color="danger" (click)="Repasar()">
+</div>
+<div  class="valida" text-center  >
+    <ion-icon ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"> La Respuesta Es Correcta </ion-icon>
 
-  Tengo Que Repasar
-</button>
+</div>
+<h2> {{id.nombre}}</h2>
 
-<button ion-button color="secondary" (click)="Cancelar()">
 
-Cancelar
-</button>
+   <ion-list radio-group>
+  <ion-item >
+    <ion-label >{{id.opciones.A}}</ion-label>
+    <ion-radio  value="go" (click)="habilitar()"></ion-radio>
+  </ion-item>
+
+  <ion-item >
+    <ion-label >{{id.opciones.B}}</ion-label>
+    <ion-radio value="rust" (click)="habilitar()"></ion-radio>
+  </ion-item>
+
+  <ion-item >
+    <ion-label >{{id.opciones.C}}</ion-label>
+    <ion-radio value="python" (click)="habilitar()"></ion-radio>
+  </ion-item>
+
+  <ion-item>
+    <ion-label >{{id.opciones.D}}</ion-label>
+    <ion-radio value="java" (click)="habilitar()"></ion-radio>
+  </ion-item>
+</ion-list>
+
+<ion-grid>
+<h6>10 segundo para responder pregunta...</h6>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button color="danger" (click)="Repasar()" block>
+        <ion-icon ios="ios-pricetag" md="md-pricetag"></ion-icon>
+      Tengo Que Repasar
+    </button>
+  </ion-col>
+    <ion-col>
+      <button ion-button color="primary" (click)="Aceptar()" [disabled]="boton" block>
+        <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
+    <h6 *ngIf="Verificando">Comprobar Respuesta</h6>
+      <h6 *ngIf="!Verificando">Verificando...</h6>
+    </button>
+  </ion-col>
+    <ion-col>
+      <button ion-button color="secondary" (click)="Cancelar()" block>
+        <ion-icon ios="ios-close" md="md-close"></ion-icon>
+      Cancelar
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
 </ion-content>
