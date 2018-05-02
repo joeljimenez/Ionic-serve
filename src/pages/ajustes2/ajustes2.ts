@@ -14,4 +14,7 @@ export class Ajustes2Page {
     console.log('ionViewDidLoad Ajustes2Page');
   }
 
+Juego(){
+  this.navCtrl.pop();
+}
 }

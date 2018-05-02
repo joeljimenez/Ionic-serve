@@ -18,7 +18,7 @@ export class PrincipalPage {
   Loading() {
       let loader = this.cargar.create({
         content: "Cargando Juego...",
-        duration: 3000
+        duration: 100
 
       });
       loader.present();
