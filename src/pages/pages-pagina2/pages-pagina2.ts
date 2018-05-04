@@ -21,10 +21,16 @@ opciones:{
 }
 },
 {
-  nombre:"Joel Jimenez",
+  nombre:"Que materia nos toca",
   edad:20,
   respondida:false,
-  terminada:false
+  terminada:false,
+  opciones:{
+    A:"1 de enero del 1990",
+    B:"4 de noviembre del 1903",
+    C:"31 de julio del 1999",
+    D:"3 de noviembre del 1990"
+  }
 },
 {
   nombre:"Joel Jimenez",

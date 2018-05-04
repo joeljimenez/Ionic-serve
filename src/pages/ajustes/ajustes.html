@@ -1,15 +1,27 @@
 
 <ion-content padding>
-<h3 text-center >Pregunta # {{numero+1}}</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <h3 text-center >Pregunta # {{numero+1}}</h3>
+      </ion-col>
+      <ion-col text-rigth>
+        <h6 class="tiempo"> {{contadorS}}</h6>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 <hr>
-<div class="invalida" text-center >
+
+<!-- <div class="invalida" text-center >
   <ion-icon ios="ios-close" md="md-close">  La Respuesta Es Invalida</ion-icon>
 
 </div>
 <div  class="valida" text-center  >
     <ion-icon ios="ios-checkmark-circle-outline" md="md-checkmark-circle-outline"> La Respuesta Es Correcta </ion-icon>
 
-</div>
+</div> -->
+
 <h2> {{id.nombre}}</h2>
 
 
@@ -36,7 +48,7 @@
 </ion-list>
 
 <ion-grid>
-<h6>10 segundo para responder pregunta...</h6>
+
 
   <ion-row>
     <ion-col>
