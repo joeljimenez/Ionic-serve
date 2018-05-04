@@ -25,7 +25,9 @@ Verificando:boolean=true;
 
   this.intervalo=setInterval(()=>{
     if(this.contadorS===1){
-      this.view.dismiss();
+      clearInterval(this.intervalo);
+this.MostrarAlerta();
+
 
     }
     this.contadorS=this.contadorS-1;
@@ -36,6 +38,24 @@ Verificando:boolean=true;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AjustesPage');
+  }
+  MostrarAlerta(){
+    let alert = this.alerta.create({
+      title: 'ERROR',
+      subTitle: 'Se Agoto el tiempo de respuesta, vuelva a intentarlo',
+      buttons: [
+        {
+          text:'Aceptar',
+          handler:()=>{
+this.view.dismiss();
+          }
+          }
+      ]
+
+
+    });
+
+    alert.present();
   }
 
 Cancelar(){
