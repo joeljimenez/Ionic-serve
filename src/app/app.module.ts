@@ -3,6 +3,11 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+//firedatabase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 
 import { MyApp } from './app.component';
 //paginas
@@ -14,6 +19,14 @@ import {Ajustes2Page} from '../pages/ajustes2/ajustes2';
 import {TabsPage} from '../pages/tabs/tabs';
 import {ModalPage} from '../pages/modal/modal';
 
+export const firebaseConfig = {
+  apiKey: "AIzaSyAHUkrHQjncDmjhO2ERtQlZMNGUsIb7ICU",
+  authDomain: "pregu-3c8e4.firebaseapp.com",
+  databaseURL: "https://pregu-3c8e4.firebaseio.com",
+  projectId: "pregu-3c8e4",
+  storageBucket: "pregu-3c8e4.appspot.com",
+  messagingSenderId: "451422552347"
+};
 
 @NgModule({
   declarations: [
@@ -24,13 +37,17 @@ PagesPagina2Page,
     AjustesPage,
     Ajustes2Page,
     TabsPage,
-    ModalPage
+    ModalPage,
+    
 
 
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -46,6 +63,7 @@ PagesPagina2Page,
   providers: [
     StatusBar,
     SplashScreen,
+    AngularFireDatabase,,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

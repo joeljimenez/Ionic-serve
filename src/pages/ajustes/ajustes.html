@@ -13,6 +13,7 @@
 
 <hr>
 
+
 <!-- <div class="invalida" text-center >
   <ion-icon ios="ios-close" md="md-close">  La Respuesta Es Invalida</ion-icon>
 
@@ -22,28 +23,28 @@
 
 </div> -->
 
-<h2> {{id.nombre}}</h2>
+<h2 > {{id.Pregunta}}</h2>
 
 
    <ion-list radio-group>
   <ion-item >
-    <ion-label >{{id.opciones.A}}</ion-label>
-    <ion-radio  value="go" (click)="habilitar()"></ion-radio>
+    <ion-label >{{id.Opciones.A}}</ion-label>
+    <ion-radio  [value]="id.Opciones.A" (click)="habilitar()" (click)="Aceptar(id.Opciones.A)"></ion-radio>
   </ion-item>
 
   <ion-item >
-    <ion-label >{{id.opciones.B}}</ion-label>
-    <ion-radio value="rust" (click)="habilitar()"></ion-radio>
+    <ion-label >{{id.Opciones.B}}</ion-label>
+    <ion-radio [value]="id.Opciones.B" (click)="habilitar()" (click)="Aceptar(id.Opciones.B)"></ion-radio>
   </ion-item>
 
   <ion-item >
-    <ion-label >{{id.opciones.C}}</ion-label>
-    <ion-radio value="python" (click)="habilitar()"></ion-radio>
+    <ion-label >{{id.Opciones.C}}</ion-label>
+    <ion-radio [value]="id.Opciones.C" (click)="habilitar()" (click)="Aceptar(id.Opciones.C)"></ion-radio>
   </ion-item>
 
   <ion-item>
-    <ion-label >{{id.opciones.D}}</ion-label>
-    <ion-radio value="java" (click)="habilitar()"></ion-radio>
+    <ion-label >{{id.Opciones.D}}</ion-label>
+    <ion-radio [value]="id.Opciones.D" (click)="habilitar()" (click)="Aceptar(id.Opciones.D)"></ion-radio>
   </ion-item>
 </ion-list>
 
@@ -57,13 +58,8 @@
       Tengo Que Repasar
     </button>
   </ion-col>
-    <ion-col>
-      <button ion-button color="primary" (click)="Aceptar()" [disabled]="boton" block>
-        <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
-    <h6 *ngIf="Verificando">Comprobar Respuesta</h6>
-      <h6 *ngIf="!Verificando">Verificando...</h6>
-    </button>
-  </ion-col>
+     
+    
     <ion-col>
       <button ion-button color="secondary" (click)="Cancelar()" block>
         <ion-icon ios="ios-close" md="md-close"></ion-icon>

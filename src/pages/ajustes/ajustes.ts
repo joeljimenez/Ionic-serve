@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, } from '@angular/core';
+
 import {  NavController,
    NavParams,
    ViewController,
-   AlertController } from 'ionic-angular';
+   AlertController,LoadingController } from 'ionic-angular';
 import {Ajustes2Page} from '../ajustes2/ajustes2';
 @Component({
   selector: 'page-ajustes',
@@ -10,6 +11,7 @@ import {Ajustes2Page} from '../ajustes2/ajustes2';
 })
 export class AjustesPage {
 id:any=[];
+ opciones:any=[];
  contadorS:number=30;
  intervalo:any;
 numero:number=0;
@@ -18,10 +20,12 @@ Verificando:boolean=true;
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
    public view:ViewController,
- public alerta:AlertController) {
+ public alerta:AlertController,
+public loading:LoadingController) {
      this.id=this.navParams.get("pregunta");
-     this.numero=this.navParams.get("id")
-     console.log(this.id, this.numero);
+     this.numero=this.navParams.get("id");
+     this.opciones=this.navParams.get("Opciones");
+     console.log(this.id, this.numero,this.opciones);
 
   this.intervalo=setInterval(()=>{
     if(this.contadorS===1){
@@ -32,6 +36,7 @@ this.MostrarAlerta();
     }
     this.contadorS=this.contadorS-1;
       console.log(this.contadorS);
+        this.id.respondida=true;
   },1000);
 
   }
@@ -52,7 +57,6 @@ this.view.dismiss();
           }
       ]
 
-
     });
 
     alert.present();
@@ -60,6 +64,8 @@ this.view.dismiss();
 
 Cancelar(){
   this.view.dismiss();
+  this.id.respondida=false;
+    clearInterval(this.intervalo);
 }
 Repasar(){
   clearInterval(this.intervalo);
@@ -98,18 +104,31 @@ Repasar(){
   confirma.present();
 }
 
-Aceptar(){
+Aceptar(valor:string){
+  console.log(valor);
   this.Verificando=false;
     clearInterval(this.intervalo);
+    this.presentLoading(); 
 setTimeout(()=>{
   this.Verificando=true;
   this.id.terminada=true;
-    this.view.dismiss();
+  
+  this.view.dismiss();
 },3000)
 
 }
 habilitar(){
+  
   this.boton=false;
   console.log(this.boton);
+}
+presentLoading() {
+  let loader = this.loading.create({
+    content: "Verificando Respuesta.",
+    duration: 3000
+
+  });
+ 
+  loader.present();
 }
 }

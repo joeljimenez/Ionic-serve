@@ -26,21 +26,25 @@
       <ion-col text-center >
       <h4>Pendientes</h4>
 
-      <ion-col *ngFor="let pre of preguntas, let i=index" class="ico1">
-           <ion-icon ios="ios-apps" md="md-apps" *ngIf="!pre.respondida && !pre.terminada" (click)="Pendientes(pre,i)" >  {{i+1}}  </ion-icon>
+      <ion-col *ngFor="let pre of Preguntas, let i=index" class="ico1">
+           <ion-icon ios="ios-apps" md="md-apps" *ngIf="!pre.Respondida && !pre.Terminada" (click)="Pendientes(pre,i,Opciones)">  {{i+1}}  </ion-icon>
       </ion-col>
       </ion-col>
       <ion-col text-center>
        <h4>En Proceso</h4>
 
-       <ion-col *ngFor="let pre of preguntas, let i=index" class="ico2">
-    <ion-icon ios="ios-create" md="md-create"  *ngIf="pre.respondida">  {{i+1}}  </ion-icon>
+      
+          <ion-col *ngFor="let pre of  Preguntas, let i=index" class="ico2">
+             <ion-icon ios="ios-create" md="md-create" *ngIf="pre.Respondida"> {{i+1}}  </ion-icon>
+         
     </ion-col>
+       
+   
       </ion-col>
       <ion-col text-center>
        <h4>Terminadas</h4>
 
-       <ion-col *ngFor="let pre of preguntas, let i=index"  class="ico3">
+       <ion-col *ngFor="let pre of Preguntas, let i=index"  class="ico3">
          <ion-icon ios="ios-checkmark" md="md-checkmark" *ngIf="pre.terminada">  {{i+1}}  </ion-icon>
        </ion-col>
       </ion-col>
