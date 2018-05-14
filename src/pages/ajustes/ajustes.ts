@@ -17,6 +17,7 @@ id:any=[];
 numero:number=0;
 boton:boolean=true ;
 Verificando:boolean=true;
+
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
    public view:ViewController,
@@ -104,31 +105,68 @@ Repasar(){
   confirma.present();
 }
 
-Aceptar(valor:string){
+Aceptar(valor:string,correcta:string){
   console.log(valor);
-  this.Verificando=false;
+ 
     clearInterval(this.intervalo);
     this.presentLoading(); 
 setTimeout(()=>{
-  this.Verificando=true;
+//alerta
+  if(valor==correcta){
+    this.Correcto(0);
+   
   this.id.terminada=true;
   
   this.view.dismiss();
+  }else{
+    this.Correcto(1);
+    this.intervalo=setInterval(()=>{
+      if(this.contadorS!=30){
+        this.contadorS=this.contadorS;
+      }
+      if(this.contadorS===1){
+        this.view.dismiss();
+
+      }
+      this.contadorS=this.contadorS-1;
+        console.log(this.contadorS);
+    },1000);
+  }
+
+
+  
 },3000)
 
 }
-habilitar(){
-  
-  this.boton=false;
-  console.log(this.boton);
-}
+
+
+
 presentLoading() {
   let loader = this.loading.create({
     content: "Verificando Respuesta.",
-    duration: 3000
+    duration: 2000
 
   });
  
   loader.present();
+}
+
+Correcto(id:number) {
+  if(id==0){
+    let loader = this.loading.create({
+      content: "Respuesta Correcta.",
+      duration: 1000
+  
+    });
+    loader.present();
+  }else{
+    let loader = this.loading.create({
+      content: "Respuesta Incorrecta.",
+      duration: 1000
+  
+    });
+    loader.present();
+  }
+  
 }
 }
