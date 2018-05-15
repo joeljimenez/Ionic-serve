@@ -21,7 +21,7 @@ Entrar(){
   presentLoading() {
     let loader = this.loading.create({
       content: "Cargando el Juego..",
-      duration: 3000
+      duration: 1000
 
     });
     this.navCtrl.push(Pagina1Page);

@@ -9,6 +9,8 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 import { AngularFireAuthModule } from 'angularfire2/auth';
 //servicio
 import { BaseDatos } from '../Servicio/ServicioBase';
+//pipes
+import { LlavePipe } from '../pipes/llave/llave';
 
 
 import { MyApp } from './app.component';
@@ -40,7 +42,7 @@ PagesPagina2Page,
     Ajustes2Page,
     TabsPage,
     ModalPage,
-    
+    LlavePipe
 
 
   ],

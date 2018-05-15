@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams,ModalController } from 'ionic-angular';
-import {ModalPage} from '../modal/modal';
+ 
 import {AjustesPage} from '../ajustes/ajustes';
 import { BaseDatos } from '../../Servicio/ServicioBase';
 import { Preguntas } from '../../Interfas/Preguntas';
@@ -37,11 +37,13 @@ Regresar(){
 
 }
 MostrarModal(){
-  let moda=this.modal.create(ModalPage,{nombre:"joel jimenez", edad:20});
-  moda.present();
+ // let moda=this.modal.create(ModalPage,{nombre:"joel jimenez", edad:20});
+ // moda.present();
+ this.servi.Guardar();
 }
-Pendientes(pregunta:any, id:number,OP:string){
-  let moda=this.modal.create(AjustesPage,{id:id,pregunta:pregunta,Opciones:OP});
+Pendientes(pregunta:string, id:number){
+ 
+  let moda=this.modal.create(AjustesPage,{id:pregunta,keys:id});
   moda.present();
 
 }
