@@ -113,13 +113,15 @@ Aceptar(valor:string,correcta:string){
 setTimeout(()=>{
 //alerta
   if(valor==correcta){
-    this.Correcto(0);
-   
-  this.id.terminada=true;
-  
-  this.view.dismiss();
+    this.MostrarlertaC(0);
+    this.id.terminada=true;
+    clearInterval(this.intervalo);
+    this.view.dismiss();
+     
+    
+
   }else{
-    this.Correcto(1);
+    this.MostrarlertaC(1);
     this.intervalo=setInterval(()=>{
       if(this.contadorS!=30){
         this.contadorS=this.contadorS;
@@ -150,23 +152,24 @@ presentLoading() {
  
   loader.present();
 }
+ 
 
-Correcto(id:number) {
-  if(id==0){
-    let loader = this.loading.create({
-      content: "Respuesta Correcta.",
-      duration: 1000
+MostrarlertaC(i:number){
+if(i==0){
+  let ale=this.alerta.create({
+    title: 'RESPUESTA CORRECTA',
+    subTitle: 'Buen Trabajo '+i,
+    buttons: ['OK']
+  });
+  ale.present();
   
-    });
-    loader.present();
-  }else{
-    let loader = this.loading.create({
-      content: "Respuesta Incorrecta.",
-      duration: 1000
-  
-    });
-    loader.present();
-  }
-  
+}else{
+  let ale=this.alerta.create({
+    title: 'RESPUESTA INCORRECTA',
+    subTitle: 'Vuelva Intentarlo',
+    buttons: ['OK']
+  });
+  ale.present();
+}
 }
 }

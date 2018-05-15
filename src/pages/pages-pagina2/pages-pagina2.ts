@@ -2,38 +2,31 @@ import { Component } from '@angular/core';
 import {NavController, NavParams,ModalController } from 'ionic-angular';
 import {ModalPage} from '../modal/modal';
 import {AjustesPage} from '../ajustes/ajustes';
-//firedatabase
-import { AngularFireDatabase } from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
+import { BaseDatos } from '../../Servicio/ServicioBase';
+import { Preguntas } from '../../Interfas/Preguntas';
+
+
 
 @Component({
   selector: 'page-pages-pagina2',
   templateUrl: 'pages-pagina2.html',
 })
 export class PagesPagina2Page {
-  joel: Observable<any[]>;
-  jimenez: Observable<any[]>;
   
-  Preguntas:any[]=[];
-  Opciones:any[]=[];
+
+  Preguntas:Preguntas[]=[];
+    
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      public modal:ModalController,
-       Datos:AngularFireDatabase) {
-        this.joel = Datos.list('ListPregunta/Preguntas/Preguntas').valueChanges();
-        this.jimenez = Datos.list('ListPregunta/Preguntas/Preguntas/1/Opciones').valueChanges();
-       this.joel.subscribe(data=>{
-console.log(data);
-this.Preguntas=data;
-console.log(this.Preguntas);
+      public servi:BaseDatos ) {
 
-       });
-       this.jimenez.subscribe(data=>{
-console.log(data);
-this.Opciones=data;
-console.log(this.Opciones);
-       });
+ this.servi.TraerPreguntas().subscribe(data=>{
+   this.Preguntas=data;
+ console.log(this.Preguntas);
+ });
+ 
   }
 
   ionViewDidLoad() {

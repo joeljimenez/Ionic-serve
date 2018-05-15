@@ -7,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+//servicio
+import { BaseDatos } from '../Servicio/ServicioBase';
 
 
 import { MyApp } from './app.component';
@@ -63,7 +65,8 @@ PagesPagina2Page,
   providers: [
     StatusBar,
     SplashScreen,
-    AngularFireDatabase,,
+    AngularFireDatabase,
+    BaseDatos,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
