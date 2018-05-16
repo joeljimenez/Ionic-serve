@@ -15,13 +15,14 @@ import { Preguntas } from '../../Interfas/Preguntas';
 })
 export class AjustesPage {
 id:Preguntas[]=[];
- opciones:any=[];
+
  contadorS:number=30;
  intervalo:any;
 numero:number=0;
 boton:boolean=true ;
 Verificando:boolean=true;
 key:string;
+opciones:any[]=[];
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
@@ -31,6 +32,7 @@ public loading:LoadingController, public data:BaseDatos) {
  
      this.id=this.navParams.get("id");
      this.numero=this.navParams.get("keys");
+   
      console.log(this.id);
      console.log(this.numero);
 

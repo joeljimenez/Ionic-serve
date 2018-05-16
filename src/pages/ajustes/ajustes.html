@@ -1,63 +1,60 @@
-
 <ion-content padding>
-  <ion-grid>
-    <ion-row>
-      <ion-col text-center>
-        <h3 text-center >Metodología Agil de Kanban</h3>
-      </ion-col>
-      <ion-col text-rigth>
-        <h6 class="tiempo"> {{contadorS}}</h6>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid>
+        <ion-row>
+            <ion-col text-center>
+                <h3 text-center>Metodología Agil de Kanban</h3>
+            </ion-col>
+            <ion-col text-rigth>
+                <h6 class="tiempo"> {{contadorS}}</h6>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
-<hr>
- 
-
-<h2 text-center>{{id.Pregunta}}</h2>
+    <hr>
+    <h2 text-center>{{id.Pregunta}}</h2>
 
 
-   <ion-list radio-group >
-  <ion-item >
-    <ion-label >{{id.Opciones.A}}</ion-label>
-    <ion-radio  [value]="id.Opciones.A" (click)="Aceptar(id.Opciones.A,id.Correcta,numero)"></ion-radio>
-  </ion-item>
+    <ion-list radio-group>
+        <ion-item>
+            <ion-label>{{id.Opciones.A}}</ion-label>
+            <ion-radio [value]="id.Opciones.A" (click)="Aceptar(id.Opciones.A,id.Correcta,numero)"></ion-radio>
+        </ion-item>
 
-  <ion-item >
-    <ion-label >{{id.Opciones.B}}</ion-label>
-    <ion-radio [value]="id.Opciones.B" (click)="Aceptar(id.Opciones.B,id.Correcta,numero)"></ion-radio>
-  </ion-item>
+        <ion-item>
+            <ion-label>{{id.Opciones.B}}</ion-label>
+            <ion-radio [value]="id.Opciones.B" (click)="Aceptar(id.Opciones.B,id.Correcta,numero)"></ion-radio>
+        </ion-item>
 
-  <ion-item >
-    <ion-label >{{id.Opciones.C}}</ion-label>
-    <ion-radio [value]="id.Opciones.C" (click)="Aceptar(id.Opciones.C,id.Correcta,numero)"></ion-radio>
-  </ion-item>
+        <ion-item>
+            <ion-label>{{id.Opciones.C}}</ion-label>
+            <ion-radio [value]="id.Opciones.C" (click)="Aceptar(id.Opciones.C,id.Correcta,numero)"></ion-radio>
+        </ion-item>
 
-  <ion-item>
-    <ion-label >{{id.Opciones.D}}</ion-label>
-    <ion-radio [value]="id.Opciones.D" (click)="Aceptar(id.Opciones.D,id.Correcta,numero)"></ion-radio>
-  </ion-item>
-</ion-list>
+        <ion-item>
+            <ion-label>{{id.Opciones.D}}</ion-label>
+            <ion-radio [value]="id.Opciones.D" (click)="Aceptar(id.Opciones.D,id.Correcta,numero)"></ion-radio>
+        </ion-item>
+    </ion-list>
 
-<ion-grid>
+    <ion-grid>
 
 
-  <ion-row>
-    <ion-col>
-      <button ion-button color="danger" (click)="Repasar(numero)" block>
+        <ion-row>
+            <ion-col>
+                <button ion-button color="danger" (click)="Repasar(numero)" block>
         <ion-icon ios="ios-pricetag" md="md-pricetag"></ion-icon>
       Tengo Que Repasar
     </button>
-  </ion-col>
-     
-    
-    <ion-col>
-      <button ion-button color="secondary" (click)="Cancelar()" block>
+            </ion-col>
+
+
+            <ion-col>
+                <button ion-button color="secondary" (click)="Cancelar()" block>
         <ion-icon ios="ios-close" md="md-close"></ion-icon>
       Cancelar
       </button>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
 </ion-content>
