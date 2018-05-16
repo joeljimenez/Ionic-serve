@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 //firedatabase
-import { AngularFireDatabase,AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase,AngularFireList, } from 'angularfire2/database';
+ 
+  
 import { Observable } from 'rxjs/Observable';
 import { Preguntas } from '../Interfas/Preguntas';
 import { map } from 'rxjs/operators';
@@ -9,9 +11,10 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class BaseDatos {
   pregunta:Preguntas[]=[];
+   
   tasksRef: AngularFireList<any>;
   joel: Observable<any[]>;
-    constructor(public Datos:AngularFireDatabase ) {
+    constructor(public Datos:AngularFireDatabase  ) {
      
 this.tasksRef=Datos.list('ListPregunta/Preguntas/Question');
       }
@@ -54,4 +57,6 @@ this.tasksRef=Datos.list('ListPregunta/Preguntas/Question');
        }
 
      }
+ 
+
 }

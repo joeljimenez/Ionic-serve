@@ -74,7 +74,7 @@ Cancelar(){
   
     clearInterval(this.intervalo);
 }
-Repasar(numero:string){
+Repasar(numero){
   clearInterval(this.intervalo);
   let confirma=this.alerta.create({
     title:'Desea Abandonar',

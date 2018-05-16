@@ -26,16 +26,16 @@
       <ion-col text-center >
       <h4>Pendientes</h4>
 
-      <ion-col *ngFor="let k of Preguntas; let i=index" class="ico1">
-           <ion-icon ios="ios-apps" md="md-apps" *ngIf="!k.Respondida && !k.Terminada" (click)="Pendientes(Preguntas,k.key)">  {{1+i}}  </ion-icon>
+      <ion-col *ngFor="let k of Preguntas ; let i=index" class="ico1">
+           <ion-icon ios="ios-apps" md="md-apps" *ngIf="!k.Respondida && !k.Terminada" (click)="Pendientes(Preguntas[i],k.key)">  {{1+i}}  </ion-icon>
       </ion-col>
       </ion-col>
       <ion-col text-center>
        <h4>En Proceso</h4>
 
       
-          <ion-col *ngFor="let pre of  Preguntas, let i=index" class="ico2">
-             <ion-icon ios="ios-create" md="md-create" *ngIf="pre.Respondida  && !pre.Terminada" (click)="Pendientes(pre,i)"> {{i+1}}  </ion-icon>
+          <ion-col *ngFor="let k of  Preguntas, let i=index" class="ico2">
+             <ion-icon ios="ios-create" md="md-create" *ngIf="k.Respondida  && !k.Terminada" (click)="Pendientes(Preguntas[i],k.key)"> {{i+1}}  </ion-icon>
          
     </ion-col>
        
@@ -44,8 +44,8 @@
       <ion-col text-center>
        <h4>Terminadas</h4>
 
-       <ion-col *ngFor="let pre of Preguntas, let i=index"  class="ico3">
-         <ion-icon ios="ios-checkmark" md="md-checkmark" *ngIf="pre.Terminada && !pre.Respondida ">  {{i+1}}  </ion-icon>
+       <ion-col *ngFor="let k of Preguntas, let i=index"  class="ico3">
+         <ion-icon ios="ios-checkmark" md="md-checkmark" *ngIf="k.Terminada && !k.Respondida ">  {{i+1}}  </ion-icon>
        </ion-col>
       </ion-col>
     </ion-row>

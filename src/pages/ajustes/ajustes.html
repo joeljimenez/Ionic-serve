@@ -3,7 +3,7 @@
   <ion-grid>
     <ion-row>
       <ion-col text-center>
-        <h3 text-center >Pregunta # {{numero+1}}</h3>
+        <h3 text-center >Metodología Agil de Kanban</h3>
       </ion-col>
       <ion-col text-rigth>
         <h6 class="tiempo"> {{contadorS}}</h6>
@@ -14,10 +14,10 @@
 <hr>
  
 
-<h2 > {{id.Pregunta}}</h2>
+<h2 text-center>{{id.Pregunta}}</h2>
 
 
-   <ion-list radio-group>
+   <ion-list radio-group >
   <ion-item >
     <ion-label >{{id.Opciones.A}}</ion-label>
     <ion-radio  [value]="id.Opciones.A" (click)="Aceptar(id.Opciones.A,id.Correcta,numero)"></ion-radio>
