@@ -22,6 +22,8 @@ import {AjustesPage} from '../pages/ajustes/ajustes';
 import {Ajustes2Page} from '../pages/ajustes2/ajustes2';
 import {TabsPage} from '../pages/tabs/tabs';
 import {ModalPage} from '../pages/modal/modal';
+import { ModalSessionPage } from '../pages/modal-session/modal-session';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAHUkrHQjncDmjhO2ERtQlZMNGUsIb7ICU",
@@ -42,7 +44,8 @@ PagesPagina2Page,
     Ajustes2Page,
     TabsPage,
     ModalPage,
-    LlavePipe
+    LlavePipe,
+    ModalSessionPage
 
 
   ],
@@ -62,7 +65,8 @@ PagesPagina2Page,
     AjustesPage,
     Ajustes2Page,
     TabsPage,
-    ModalPage
+    ModalPage,
+    ModalSessionPage
   ],
   providers: [
     StatusBar,

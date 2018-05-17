@@ -9,5 +9,5 @@ Opciones:{
 Pregunta:string;
 Respondida:boolean;
 Terminada:boolean;
-$key?:string;
+key?:string;
 }
