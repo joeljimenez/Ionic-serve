@@ -1,4 +1,4 @@
-import { Component, } from '@angular/core';
+import { Component} from '@angular/core';
 
 import {  NavController,
    NavParams,
@@ -29,10 +29,10 @@ opciones:any[]=[];
    public view:ViewController,
  public alerta:AlertController,
 public loading:LoadingController, public data:BaseDatos) {
- 
+
      this.id=this.navParams.get("id");
      this.numero=this.navParams.get("keys");
-   
+
      console.log(this.id);
      console.log(this.numero);
 
@@ -45,7 +45,7 @@ this.MostrarAlerta();
     }
     this.contadorS=this.contadorS-1;
       console.log(this.contadorS);
-       
+
   },1000);
 
   }
@@ -73,7 +73,7 @@ this.view.dismiss();
 
 Cancelar(){
   this.view.dismiss();
-  
+
     clearInterval(this.intervalo);
 }
 Repasar(numero){
@@ -89,7 +89,7 @@ Repasar(numero){
 this.data.Actualizar(numero,0);
           this.view.dismiss();
           this.navCtrl.push(Ajustes2Page);
-          
+
         }
       },
       {
@@ -115,9 +115,9 @@ this.data.Actualizar(numero,0);
 //Convalidar la pregunta
 Aceptar(valor:string,correcta:string,numero:string){
   console.log(valor);
- 
+
     clearInterval(this.intervalo);
-    this.presentLoading(); 
+    this.presentLoading();
 setTimeout(()=>{
 //alerta
   if(valor==correcta){
@@ -125,15 +125,15 @@ setTimeout(()=>{
     this.MostrarlertaC(0);
     clearInterval(this.intervalo);
     this.view.dismiss();
-     
-  
+
+
   }else{
     this.MostrarlertaC(1);
     this.data.Actualizar(numero,0);
 
     this.view.dismiss();
   }
-  
+
 },3000)
 
 }
@@ -146,10 +146,10 @@ presentLoading() {
     duration: 2000
 
   });
- 
+
   loader.present();
 }
- 
+
 
 MostrarlertaC(i:number){
 if(i==0){
@@ -159,7 +159,7 @@ if(i==0){
     buttons: ['OK']
   });
   ale.present();
-  
+
 }else{
   let ale=this.alerta.create({
     title: 'RESPUESTA INCORRECTA',

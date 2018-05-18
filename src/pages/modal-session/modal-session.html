@@ -1,3 +1,44 @@
-<ion-content padding>
 
-</ion-content>
+
+<ion-header color="jugar">
+
+  <ion-navbar>
+    <ion-title text-center>  <ion-icon name="contact"> Login </ion-icon></ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+<ion-card padding>
+<ion-item>
+
+<ion-label floating>  <ion-icon name="person"></ion-icon>Ingrese Usuario</ion-label>
+<ion-input type="text" value="" [(ngModel)]="Usuario"></ion-input>
+
+</ion-item>
+
+<ion-item>
+
+<ion-label floating> <ion-icon ios="ios-lock" md="md-lock"></ion-icon> Ingrese Contraseña</ion-label>
+<ion-input type="text" value="" [(ngModel)]="Usuario"></ion-input>
+
+</ion-item>
+<ion-grid>
+  <ion-row>
+    <ion-col><button ion-button color="ran" block><ion-icon ios="ios-send" md="md-send"></ion-icon>Iniciar Sessión</button></ion-col>
+    <ion-col><button ion-button color="ran" block (click)="Cancelar()">  <ion-icon ios="ios-backspace" md="md-backspace"></ion-icon>cancelar</button></ion-col>
+  </ion-row>
+</ion-grid>
+<ion-grid >
+  <ion-row text-center>
+    <ion-col  block><h3 Apptocar (click)="Registrar()">Registrarse Para Jugar</h3></ion-col>
+    <ion-col  block><h3 Apptocar >¿Olvisaste la Contraseña?</h3></ion-col>
+  </ion-row>
+</ion-grid>
+
+
+</ion-card>
+<ion-list>
+  <button ion-button color="danger"  disabled block>*Para poder Jugar debe Iniciar Session.</button>
+</ion-list>
+
+</ion-content><ion-header>

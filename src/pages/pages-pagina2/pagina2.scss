@@ -1,34 +1,35 @@
 .pag2{
-  background-image: url('../../assets/imgs/fondo.jpg');
-    background-repeat:no-repeat;
-    background-position : center;
+  background: #EFF5FB;
 }
 .cabeza{
-
   font-weight: bold;
 }
 ion-col{
-  font-size: 20px;
+  font-size: 15px;
 }
 h4{
-  position: fixed;
-  background:#E0ECF8;
+
+background:#8258FA;
+color: white;
+font-weight: bold;
 padding: 10px;
-  z-index:2;
-  width:30%;
-  border-radius: 15px
+width:100%;
+font-size: 15px;
+box-shadow: 0px 0px 2px 0px black;
 }
 .juego{
-
   padding: 5px;
 }
-.ico3{
-  color:red;
+.juego ion-icon{
+  font-size: 15px;
 }
-.ico2{
-  color:#0B610B;
+.cabeza ion-icon{
+  color:#08298A;
+  font-size: 20px;
 }
-.ico1{
-  color:#0B0B61;
-  overflow: scroll;
+.cabeza ion-icon{
+  box-shadow: 0px 0px 2px 0px black;
+width:100%;
+  font-weight: bold;
+  background: #A9D0F5;
 }

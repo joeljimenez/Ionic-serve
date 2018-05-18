@@ -11,7 +11,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { BaseDatos } from '../Servicio/ServicioBase';
 //pipes
 import { LlavePipe } from '../pipes/llave/llave';
-
+//directive
+import {TocarDirective} from '../directives/tocar';
 
 import { MyApp } from './app.component';
 //paginas
@@ -45,7 +46,8 @@ PagesPagina2Page,
     TabsPage,
     ModalPage,
     LlavePipe,
-    ModalSessionPage
+    ModalSessionPage,
+    TocarDirective
 
 
   ],
