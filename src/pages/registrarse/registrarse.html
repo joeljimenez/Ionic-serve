@@ -1,0 +1,135 @@
+<ion-header>
+
+<ion-navbar color="jugar">
+      <ion-title text-center ><ion-icon ios="ios-contacts" md="md-contacts"></ion-icon>Registro de Jugador</ion-title>
+</ion-navbar>
+</ion-header>
+
+  <ion-content padding>
+
+<form>
+<ion-card >
+  <ion-title text-center padding color="fondo">  <ion-icon name="pricetags"></ion-icon>Ingrese Los datos</ion-title>
+<ion-grid text-center>
+  <ion-row>
+    <ion-col >
+    <ion-item>
+      <ion-label floating><ion-icon name="contact" class="nombre"> Nombre</ion-icon></ion-label>
+      <ion-input type="text"  required> </ion-input>
+    </ion-item>
+    <ion-item *ngIf="requerido">
+      <p></p>
+    </ion-item>
+  </ion-col>
+
+<ion-col>
+<ion-item>
+ <ion-label floating><ion-icon name="person" class="nombre"> Apellido</ion-icon></ion-label>
+ <ion-input type="text"  required> </ion-input>
+</ion-item>
+<ion-item *ngIf="requerido">
+ <p></p>
+</ion-item>
+</ion-col>
+
+<ion-col>
+<ion-item>
+<ion-label floating><ion-icon ios="ios-locate" md="md-locate" class="nombre"> Cédula</ion-icon></ion-label>
+<ion-input type="text"  required> </ion-input>
+</ion-item>
+<ion-item *ngIf="requerido">
+<p></p>
+</ion-item>
+</ion-col>
+
+<ion-col>
+<ion-item>
+<ion-label floating><ion-icon name="key" class="nombre"> Clave de seguridad</ion-icon></ion-label>
+<ion-input type="text"  required > </ion-input>
+</ion-item>
+<ion-item *ngIf="requerido">
+<p></p>
+</ion-item>
+</ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-grid>
+  <ion-row>
+    <ion-col>
+    <ion-item>
+      <ion-label floating><ion-icon ios="ios-person" md="md-person" class="nombre"> Usuario</ion-icon>
+</ion-label>
+      <ion-input type="text"  required> </ion-input>
+    </ion-item>
+    <ion-item *ngIf="requerido">
+      <p></p>
+    </ion-item>
+    </ion-col>
+
+    <ion-col>
+    <ion-item>
+      <ion-label floating><ion-icon ios="ios-key" md="md-key" class="nombre"> Contraseña</ion-icon></ion-label>
+      <ion-input type="text"  required> </ion-input>
+    </ion-item>
+    <ion-item *ngIf="requerido">
+      <p></p>
+    </ion-item>
+    </ion-col>
+
+    <ion-col>
+    <ion-item>
+      <ion-label floating><ion-icon ios="ios-lock" md="md-lock" class="nombre"> Verificacion de Contraseña</ion-icon></ion-label>
+      <ion-input type="text"  required> </ion-input>
+    </ion-item>
+    <ion-item *ngIf="requerido">
+      <p></p>
+    </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-grid>
+  <ion-row>
+    <ion-col>
+    <ion-item>
+      <ion-label floating><ion-icon ios="ios-paper" md="md-paper" class="nombre"> Carerra Universitaria</ion-icon></ion-label>
+      <ion-input type="text"  required> </ion-input>
+    </ion-item>
+    <ion-item *ngIf="requerido">
+      <p></p>
+    </ion-item>
+    </ion-col>
+    <ion-col>
+    <ion-item >
+      <ion-label floating>  <ion-icon ios="ios-school" md="md-school" class="nombre"> Año que Cursa</ion-icon></ion-label>
+      <ion-input type="text"  required> </ion-input>
+    </ion-item>
+    <ion-item *ngIf="requerido">
+      <p></p>
+    </ion-item>
+    </ion-col>
+    <ion-col>
+    <ion-item >
+      <ion-label floating>   <ion-icon ios="ios-happy" md="md-happy" class="nombre">Edad</ion-icon></ion-label>
+      <ion-input type="text"  required> </ion-input>
+    </ion-item>
+    <ion-item *ngIf="requerido">
+      <p></p>
+    </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+</ion-card>
+
+<ion-grid>
+  <ion-row>
+    <ion-col><button ion-button color="jugar" block (click)="Registrar()"><ion-icon ios="ios-send" md="md-send"></ion-icon>Registrar Jugador</button></ion-col>
+    <ion-col><button ion-button color="jugar" block (click)="Cancelar()">  <ion-icon ios="ios-backspace" md="md-backspace"></ion-icon>cancelar</button></ion-col>
+
+  </ion-row>
+</ion-grid>
+</form>
+
+  </ion-content>

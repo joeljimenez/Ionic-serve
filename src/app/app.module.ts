@@ -24,6 +24,7 @@ import {Ajustes2Page} from '../pages/ajustes2/ajustes2';
 import {TabsPage} from '../pages/tabs/tabs';
 import {ModalPage} from '../pages/modal/modal';
 import { ModalSessionPage } from '../pages/modal-session/modal-session';
+import {RegistrarsePage} from '../pages/registrarse/registrarse';
 
 
 export const firebaseConfig = {
@@ -47,7 +48,8 @@ PagesPagina2Page,
     ModalPage,
     LlavePipe,
     ModalSessionPage,
-    TocarDirective
+    TocarDirective,
+    RegistrarsePage
 
 
   ],
@@ -68,7 +70,8 @@ PagesPagina2Page,
     Ajustes2Page,
     TabsPage,
     ModalPage,
-    ModalSessionPage
+    ModalSessionPage,
+    RegistrarsePage
   ],
   providers: [
     StatusBar,
