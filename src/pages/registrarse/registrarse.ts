@@ -47,4 +47,8 @@ Registrar(){
   let moda=this.modal.create(ModalSessionPage);
   moda.present();
 }
+
+//Convalidacines
+
+
 }

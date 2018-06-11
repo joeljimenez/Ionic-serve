@@ -7,7 +7,7 @@
 
   <ion-content padding>
 
-<form>
+<form (ngSubmit)="Registrar()" >
 <ion-card >
   <ion-title text-center padding color="fondo">  <ion-icon name="pricetags"></ion-icon>Ingrese Los datos</ion-title>
 <ion-grid text-center>
@@ -125,7 +125,7 @@
 
 <ion-grid>
   <ion-row>
-    <ion-col><button ion-button color="jugar" block (click)="Registrar()"><ion-icon ios="ios-send" md="md-send"></ion-icon>Registrar Jugador</button></ion-col>
+    <ion-col><button ion-button color="jugar" block type="submit"><ion-icon ios="ios-send" md="md-send"  > </ion-icon>Registrar Jugador</button></ion-col>
     <ion-col><button ion-button color="jugar" block (click)="Cancelar()">  <ion-icon ios="ios-backspace" md="md-backspace"></ion-icon>cancelar</button></ion-col>
 
   </ion-row>

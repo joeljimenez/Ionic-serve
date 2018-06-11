@@ -23,7 +23,7 @@
 
 
       <ion-col *ngFor="let k of Preguntas ; let i=index" text-center >
-      <button  ion-button color="pendiente"   (click)="Pendientes(Preguntas[i],k.key)" [disabled]="k.habilitado">
+      <button  ion-button color="pendiente"   (click)="Pendientes(Preguntas[i],k.key)" [disabled]="k.Habilitado">
      <ion-icon ios="ios-apps" md="md-apps" >{{i+1}}</ion-icon></button>
       </ion-col>
 
@@ -62,15 +62,15 @@
   <ion-grid >
       <ion-row>
           <ion-col text-center  (click)="Regresar()">
-              <ion-icon name="arrow-dropleft"><span>Menu Principal</span> </ion-icon>
-
+              
+              <ion-icon ios="ios-arrow-dropleft-circle" md="md-arrow-dropleft-circle"><span>  Menu Principal  </span></ion-icon>
           </ion-col>
           <ion-col text-center>
-              <ion-icon ios="ios-trophy" md="md-trophy"><span>Nivel 10</span></ion-icon>
+              <ion-icon ios="ios-trophy" md="md-trophy"><span>   Nivel 10  </span></ion-icon>
 
           </ion-col>
           <ion-col text-center (click)="MostrarModal()">
-              <ion-icon name="contact"><span>Perfil Usuario</span></ion-icon>
+              <ion-icon name="contact"><span>  Perfil Usuario  </span></ion-icon>
 
           </ion-col>
 

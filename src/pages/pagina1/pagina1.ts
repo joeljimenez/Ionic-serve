@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams,ModalController  } from 'ionic-angular';
 import {PagesPagina2Page} from '../pages-pagina2/pages-pagina2';
 import { ModalSessionPage } from '../modal-session/modal-session';
+import {AjustesPage} from '../ajustes/ajustes'
 
 @Component({
   selector: 'page-pagina1',
@@ -23,5 +24,9 @@ this.navCtrl.push(PagesPagina2Page);
 IniciarSession(){
 let moda=this.modal.create(ModalSessionPage);
 moda.present();
+
+}
+Documentacion(){
+  this.navCtrl.push(AjustesPage);
 }
 }

@@ -41,7 +41,7 @@ this.tasksRef=Datos.list('ListPregunta/Preguntas/Question');
       Correcta:"Navidad",
       Respondida:false,
       Terminada:false,
-      habilitado:false,
+      Habilitado:false,
      });
      }
      Actualizar(id:string,Te:number){
@@ -49,13 +49,13 @@ this.tasksRef=Datos.list('ListPregunta/Preguntas/Question');
         this.tasksRef.update(id,{
           Respondida:true,
           Terminada:false,
-          habilitado:true
+          Habilitado:true
           });
        }else{
         this.tasksRef.update(id,{
           Respondida:false,
           Terminada:true,
-          habilitado:true
+          Habilitado:true
           });
        }
 

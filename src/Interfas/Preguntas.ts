@@ -9,5 +9,6 @@ Opciones:{
 Pregunta:string;
 Respondida:boolean;
 Terminada:boolean;
+Habilitado:boolean;
 key?:string;
 }
