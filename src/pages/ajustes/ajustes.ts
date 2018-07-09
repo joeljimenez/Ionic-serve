@@ -1,12 +1,11 @@
 import { Component} from '@angular/core';
-
-import {  NavController,
-   NavParams,
-   ViewController,
-   AlertController,LoadingController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import {  NavController, NavParams, ViewController, AlertController,LoadingController,Platform } from 'ionic-angular';
 import {Ajustes2Page} from '../ajustes2/ajustes2';
-import { BaseDatos } from '../../Servicio/ServicioBase';
 import { Preguntas } from '../../Interfas/Preguntas';
+import { BaseDatos } from '../../Servicio/ServicioBase';
+import { Juego } from '../../Interfas/Juego';
+import { PruebaService } from '../../Servicio/Prueba';
 
 
 @Component({
@@ -14,9 +13,18 @@ import { Preguntas } from '../../Interfas/Preguntas';
   templateUrl: 'ajustes.html',
 })
 export class AjustesPage {
-id:Preguntas[]=[];
+ id:Preguntas[]=[];
 
- contadorS:number=30;
+public data:Juego= {
+  Respondida:'',
+  Terminado:'',
+  Habilitado:''
+}
+
+token:string;
+Id_User:string;
+
+ contadorS:number=20;
  intervalo:any;
 numero:number=0;
 boton:boolean=true ;
@@ -26,20 +34,24 @@ opciones:any[]=[];
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
-   public view:ViewController,
- public alerta:AlertController,
-public loading:LoadingController, public data:BaseDatos) {
-
-     this.id=this.navParams.get("id");
+   public view:ViewController, 
+   public alerta:AlertController,
+   public plataform:Platform,
+   public storage:Storage,
+   public loading:LoadingController,
+    public servi:BaseDatos,public prueba:PruebaService) {
+ 
+   
      this.numero=this.navParams.get("keys");
-
-     console.log(this.id);
+     prueba.Traer_Una_Pregunta(this.numero);
+ 
+   
      console.log(this.numero);
 
-  this.intervalo=setInterval(()=>{
-    if(this.contadorS===1){
+      this.intervalo=setInterval(()=>{
+      if(this.contadorS===1){
       clearInterval(this.intervalo);
-this.MostrarAlerta();
+      this.MostrarAlerta();
 
 
     }
@@ -47,7 +59,7 @@ this.MostrarAlerta();
       console.log(this.contadorS);
 
   },1000);
-
+this.cargar_storage();
   }
 
   ionViewDidLoad() {
@@ -72,7 +84,8 @@ this.view.dismiss();
   }
 
 Cancelar(){
-  this.view.dismiss();
+  this.CancelarP();
+  
 
     clearInterval(this.intervalo);
 }
@@ -86,9 +99,16 @@ Repasar(numero){
       {
         text:'Aceptar',
         handler:()=>{
-this.data.Actualizar(numero,0);
+          this.data.Habilitado=true;
+          this.data.Respondida=true;
+          this.data.Terminado=false;
+        
+          this.servi.Respuestas(this.Id_User,this.token,this.numero,this.data).subscribe(res=>{
+            console.log(res);
+          });
           this.view.dismiss();
           this.navCtrl.push(Ajustes2Page);
+    
 
         }
       },
@@ -96,7 +116,7 @@ this.data.Actualizar(numero,0);
         text:'Cancelar',
         handler: ()=>{
           this.intervalo=setInterval(()=>{
-            if(this.contadorS!=30){
+            if(this.contadorS!=20){
               this.contadorS=this.contadorS;
             }
             if(this.contadorS===1){
@@ -113,7 +133,7 @@ this.data.Actualizar(numero,0);
   confirma.present();
 }
 //Convalidar la pregunta
-Aceptar(valor:string,correcta:string,numero:string){
+Aceptar(valor:string,correcta:string){
   console.log(valor);
 
     clearInterval(this.intervalo);
@@ -121,16 +141,35 @@ Aceptar(valor:string,correcta:string,numero:string){
 setTimeout(()=>{
 //alerta
   if(valor==correcta){
-    this.data.Actualizar(numero,1);
+
+  this.data.Habilitado=true;
+  this.data.Respondida=false;
+  this.data.Terminado=true;
+this.servi.Respuestas(this.Id_User,this.token,this.numero,this.data).subscribe(res=>{
+  console.log(res);
+});
+
+this.servi.Actualizar_Puntaje(this.Id_User,this.token,this.numero).subscribe(res=>{
+
+  console.log(res);
+  
+});
     this.MostrarlertaC(0);
     clearInterval(this.intervalo);
+ 
     this.view.dismiss();
 
 
   }else{
-    this.MostrarlertaC(1);
-    this.data.Actualizar(numero,0);
+ this.data.Habilitado=true;
+  this.data.Respondida=true;
+  this.data.Terminado=false;
 
+  this.servi.Respuestas(this.Id_User,this.token,this.numero,this.data).subscribe(res=>{
+    console.log(res);
+  });
+    this.MostrarlertaC(1);
+ 
     this.view.dismiss();
   }
 
@@ -168,5 +207,78 @@ if(i==0){
   });
   ale.present();
 }
+}
+
+//para cargar el id y el token
+public cargar_storage(){
+  let promesa = new Promise((resolve, reject)=>{
+    if(this.plataform.is("cordova")){
+      //Storage Del Telefono
+      this.storage.ready().then( ()=>{
+         this.storage.get("token").
+         then(  token=>{
+            if(token){
+              this.token=token;
+            }
+        })
+
+         this.storage.get("Id_User").
+         then(  Id_User=>{
+          if(Id_User){
+            this.Id_User=Id_User;
+          }
+          resolve();
+       })
+      })
+    }
+    else{
+//Storage Del la Computador
+
+if(localStorage.getItem("token")){
+this.token=localStorage.getItem("token");
+this.Id_User=localStorage.getItem("Id_User");
+}
+resolve();
+
+
+    }
+
+  });
+  return promesa;
+}
+
+CancelarP(){
+  let confirma=this.alerta.create({
+    title:'Desea Abandonar',
+    message:'Se le Sumara Un Intento',
+    buttons: [
+      {
+        text:'Aceptar',
+        handler:()=>{
+          this.view.dismiss();
+         
+          
+
+        }
+      },
+      {
+        text:'Cancelar',
+        handler: ()=>{
+          this.intervalo=setInterval(()=>{
+            if(this.contadorS!=20){
+              this.contadorS=this.contadorS;
+            }
+            if(this.contadorS===1){
+              this.view.dismiss();
+
+            }
+            this.contadorS=this.contadorS-1;
+              console.log(this.contadorS);
+          },1000);
+        }
+      }
+    ]
+  });
+  confirma.present();
 }
 }

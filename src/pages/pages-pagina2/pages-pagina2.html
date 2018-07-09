@@ -22,22 +22,27 @@
             <ion-col text-center>
 
 
-      <ion-col *ngFor="let k of Preguntas ; let i=index" text-center >
-      <button  ion-button color="pendiente"   (click)="Pendientes(Preguntas[i],k.key)" [disabled]="k.Habilitado">
-     <ion-icon ios="ios-apps" md="md-apps" >{{i+1}}</ion-icon></button>
+      <ion-col *ngFor="let k of prueba.Preguntas ; let i=index" text-center >
+
+
+                <button  ion-button color="pendiente"   (click)="Pendientes(prueba.Preguntas[i],k.Id_Pregunta)">
+                        <ion-icon ios="ios-apps" md="md-apps">{{k.Dificultad}}</ion-icon></button>
+               <!--ion-col *ngFor="let k of Preguntas; let i=index" text-center > </ion-col+-->
+   
       </ion-col>
 
             </ion-col>
             <ion-col text-center>
 
 
+                <ion-col text-center *ngFor="let k of prueba.Habil ; let i=index" >
 
-                <ion-col *ngFor="let k of  Preguntas, let i=index" text-center>
-                  <button ion-button  color="danger"
-                  *ngIf="k.Respondida  && !k.Terminada" (click)="Pendientes(Preguntas[i],k.key)">
-  <ion-icon ios="ios-create" md="md-create" > {{i+1}}</ion-icon>
 
-                  </button>
+                    
+                  <button ion-button  color="danger" *ngIf="k.terminada == 0 && k.respondida == 1"
+               (click)="Pendientes(prueba.Preguntas[i],k.Id_Pregunta)">
+  <ion-icon ios="ios-create" md="md-create" >{{k.Id_Pregunta}}</ion-icon>
+                </button>
 
 
                 </ion-col>
@@ -47,9 +52,9 @@
             <ion-col text-center>
 
 
-                <ion-col *ngFor="let k of Preguntas, let i=index" text-center >
-                  <button ion-button color="terminado" *ngIf="k.Terminada && !k.Respondida ">
-                    <ion-icon ios="ios-checkmark" md="md-checkmark" >{{i+1}}</ion-icon>
+                <ion-col  *ngFor="let k of prueba.Habil ; let i=index"text-center  >
+                  <button ion-button color="terminado" *ngIf="k.terminada==1 && k.respondida ==0">
+                    <ion-icon ios="ios-checkmark" md="md-checkmark" > {{k.Id_Pregunta}} </ion-icon>
                   </button>
 
                 </ion-col>
@@ -58,19 +63,21 @@
 
     </ion-grid>
 </ion-content>
-<ion-footer  class="cabeza">
+<ion-fab center bottom>
+    <button ion-fab color="danger" (click)="Salir()"><ion-icon  name="exit"></ion-icon></button>
+  
+  </ion-fab>
+<ion-footer  class="cabeza" color="jugar">
   <ion-grid >
       <ion-row>
           <ion-col text-center  (click)="Regresar()">
               
-              <ion-icon ios="ios-arrow-dropleft-circle" md="md-arrow-dropleft-circle"><span>  Menu Principal  </span></ion-icon>
-          </ion-col>
-          <ion-col text-center>
-              <ion-icon ios="ios-trophy" md="md-trophy"><span>   Nivel 10  </span></ion-icon>
+                <ion-icon  name="arrow-dropleft"></ion-icon>
 
           </ion-col>
+       
           <ion-col text-center (click)="MostrarModal()">
-              <ion-icon name="contact"><span>  Perfil Usuario  </span></ion-icon>
+              <ion-icon  name="ios-contact-outline"></ion-icon>
 
           </ion-col>
 

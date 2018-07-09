@@ -1,9 +1,10 @@
 <ion-content padding>
     <ion-grid>
         <ion-row>
-            <ion-col text-center>
-                <h3 text-center>Metodología Agil de Kanban</h3>
+            <ion-col>
+                <ion-img text-center width="50" height="50" src="../../assets/imgs/kn.png"></ion-img>
             </ion-col>
+        
             <ion-col text-rigth>
                 <h6 class="tiempo"> {{contadorS}}</h6>
             </ion-col>
@@ -11,29 +12,26 @@
     </ion-grid>
 
     <hr>
-    <h2 text-center>{{id.Pregunta}}</h2>
+    <h2 text-center>{{prueba.PreguntasS.Pregunta}}</h2>
 
 
     <ion-list radio-group>
         <ion-item>
-            <ion-label>{{id.Opciones.A.AR}}</ion-label>
-            <ion-radio [value]="id.Opciones.A.AR" (click)="Aceptar(id.Opciones.A.indice,id.Correcta,numero)"></ion-radio>
+            <ion-label>{{prueba.PreguntasS.OpcionA}}</ion-label>
+            <ion-radio [value]="prueba.PreguntasS.OpcionA" (click)="Aceptar(1,prueba.PreguntasS.Correcta)"></ion-radio>
         </ion-item>
 
         <ion-item>
-            <ion-label>{{id.Opciones.B.AR}}</ion-label>
-            <ion-radio [value]="id.Opciones.B.AR" (click)="Aceptar(id.Opciones.B.indice,id.Correcta,numero)"></ion-radio>
+            <ion-label>{{prueba.PreguntasS.OpcionB}}</ion-label>
+            <ion-radio [value]="prueba.PreguntasS.OpcionB" (click)="Aceptar(2,prueba.PreguntasS.Correcta)"></ion-radio>
         </ion-item>
 
         <ion-item>
-            <ion-label>{{id.Opciones.C.AR}}</ion-label>
-            <ion-radio [value]="id.Opciones.C.AR" (click)="Aceptar(id.Opciones.C.indice,id.Correcta,numero)"></ion-radio>
+            <ion-label>{{prueba.PreguntasS.OpcionC}}</ion-label>
+            <ion-radio [value]="prueba.PreguntasS.OpcionC" (click)="Aceptar(3,prueba.PreguntasS.Correcta)"></ion-radio>
         </ion-item>
 
-        <ion-item>
-            <ion-label>{{id.Opciones.D.AR}}</ion-label>
-            <ion-radio [value]="id.Opciones.D.AR" (click)="Aceptar(id.Opciones.D.indice,id.Correcta,numero)"></ion-radio>
-        </ion-item>
+       
     </ion-list>
 
     <ion-grid>

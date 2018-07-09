@@ -2,22 +2,115 @@
 <ion-header >
 <ion-grid>
   <ion-row>
-
-    <ion-col text-center (click)="RegresarJuego()">
-      <ion-icon name="arrow-dropleft-circle" ></ion-icon>
-  Volver Al Juego
-    </ion-col>
+ <ion-col text-center (click)="RegresarJuego()">
+        <ion-icon class="ico" name="arrow-dropleft"></ion-icon>
+   </ion-col>
     <ion-col text-center>
-      <ion-icon name="contact"></ion-icon>
-       Perfil Usuario
+        <ion-icon class="ico" name="ios-contact-outline"></ion-icon>
+        
     </ion-col>
 
   </ion-row>
+  <h4 text-center>Imformacion sobre el Jugador</h4>
   </ion-grid>
 
 </ion-header>
 
+<ion-content class="modal" *ngFor="let item of servi.PerfilU">
 
-<ion-content class="modal">
-<h1 text-center>Imformacion sobre el Jugador</h1>
+<ion-card padding >
+<ion-row>
+  <ion-col text-center>
+      <h3>Nombre:</h3>
+  </ion-col>
+  <ion-col text-center>
+      <h3>{{item.nombre}}</h3>
+  </ion-col>
+</ion-row>
+</ion-card>
+
+<ion-card padding>
+        <ion-row>
+          <ion-col text-center>
+              <h3>Apellido:</h3>
+          </ion-col>
+          <ion-col text-center>
+              <h3>{{item.apellido}}</h3>
+          </ion-col>
+        </ion-row>
+        </ion-card>
+    
+        <ion-card padding>
+            <ion-row>
+              <ion-col text-center>
+                  <h3>Cedula:</h3>
+              </ion-col>
+              <ion-col text-center>
+                  <h3>{{item.cedula}}</h3>
+              </ion-col>
+            </ion-row>
+            </ion-card>
+            <ion-card padding>
+                <ion-row>
+                  <ion-col text-center>
+                      <h3>Usuario:</h3>
+                  </ion-col>
+                  <ion-col text-center>
+                      <h3>{{item.Usuario}}</h3>
+                  </ion-col>
+                </ion-row>
+                </ion-card>
+                <ion-card padding>
+                    <ion-row>
+                      <ion-col text-center>
+                          <h3>Nivel:</h3>
+                      </ion-col>
+                      <ion-col text-center>
+                          <h3>{{item.nivel| Nivel}}</h3>
+                      </ion-col>
+                    </ion-row>
+                    </ion-card>
+                    <ion-card padding>
+                        <ion-row>
+                          <ion-col text-center>
+                              <h3>Puntaje:</h3>
+                          </ion-col>
+                          <ion-col text-center>
+                              <h3>{{item.Puntacion}}</h3>
+                          </ion-col>
+                        </ion-row>
+                        </ion-card>
+                        <ion-card padding>
+                            <ion-row>
+                              <ion-col text-center>
+                                  <h3>Hora Partida:</h3>
+                              </ion-col>
+                              <ion-col text-center>
+                                  <h3>{{item.Fecha_Partida}}</h3>
+                              </ion-col>
+                            </ion-row>
+                            </ion-card>
+                            <ion-card padding>
+                                <ion-row>
+                                  <ion-col text-center>
+                                      <h3>Ultima partida:</h3>
+                                  </ion-col>
+                                  <ion-col text-center>
+                                      <h3>{{item.Hora_Partida}}</h3>
+                                  </ion-col>
+                                </ion-row>
+                                </ion-card>
+                                <ion-card padding>
+                                    <ion-row>
+                                      <ion-col text-center>
+                                          <h3>Carrera:</h3>
+                                      </ion-col>
+                                      <ion-col text-center>
+                                          <h3>{{item.carrera}}</h3>
+                                      </ion-col>
+                                    </ion-row>
+                                    </ion-card>
+                               
+
+        
 </ion-content>

@@ -1,3 +1,51 @@
 page-ajustes2 {
 
-}
+    .toolbar-background {
+        background: #fff;
+        border-color: transparent;
+      }
+    
+      .slide-zoom {
+        height: 100%;
+      }
+    
+      .slide-title {
+          color: #912a2a;
+        margin-top: 2.8rem;
+      }
+    
+      .slide-image {
+        max-height: 50%;
+        max-width: 60%;
+        margin: 18px 0;
+      }
+    
+      b {
+        font-weight: 500;
+      }
+    
+      p {
+        padding: 0 40px;
+        font-size: 20px;
+        text-align: justify;
+        line-height: 1.5;
+        color: rgb(49, 28, 28);
+    
+        b {
+          color: #000000;
+        }
+      }
+      h2{
+          color:rgba(8, 3, 3, 0.61);
+          font-size: 20px;
+          font-weight: bold;
+      }
+       }
+       
+      .docu{
+        background: #8A0808;
+          .title{
+        color:white;
+    }
+    }
+  

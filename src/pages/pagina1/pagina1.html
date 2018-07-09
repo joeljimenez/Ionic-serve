@@ -1,39 +1,68 @@
 <ion-content class="pag2">
 
+    <br><br>
+    <!--ion-img src="../../assets/imgs/Kanban.png"></ion-img-->
+    <h1 class="blink" > Trivia Kanban </h1>
     <br>
-    <ion-row justify-content-center>
-        <button ion-button color="documentacion" col-5 (click)="Documentacion()"> 
-  <ion-icon ios="ios-map" ></ion-icon>
-     Documentaciòn
-   </button>
+    <ion-card color="documentacion">
+         
+        <ion-card-content>
+ 
+ <button ion-button  block color="sinfondo" (click)="Documentacion()" [disabled]="!ERROR">
+                <h1>  <ion-icon name="ios-map">  </ion-icon> DOCUMENTACIÓN</h1>
+  </button> 
+        </ion-card-content>
+      </ion-card>
+      
 
-        <button ion-button color="tutoral" col-5>
-  <ion-icon name="videocam"> </ion-icon>
-    Tutorial
-</button>
-    </ion-row>
-    <br><br>
-    <ion-row justify-content-center>
-        <button ion-button color="jugar" (click)="Seguir()">
-  <ion-icon name="logo-playstation">  </ion-icon>
-     Jugar
-</button>
-    </ion-row>
-    <br><br>
-    <ion-row justify-content-center>
-        <button ion-button col-5 color="login" (click)="IniciarSession()">
-   <ion-icon name="people"></ion-icon>
-     Iniciar Sessión
+      <ion-card color="tutoral">
+         
+        <ion-card-content>
+         <button ion-button  block color="sinfondo"  [disabled]="!ERROR">
+               <h1><ion-icon name="videocam"> </ion-icon> Tutorial</h1> 
+         </button>
+
+
+     </ion-card-content>
+    </ion-card>
+
+    <ion-card >
+         
+    <ion-card-content text-center color="jugar">
+           <button ion-button  block color="sinfondo"  (click)="Seguir()" [disabled]="!ERROR">
+               <h1 padding>  <ion-icon name="logo-playstation">  </ion-icon> JUGAR</h1>
+           </button>   
+    
+    </ion-card-content>
+    </ion-card>
+   
+    <ion-card color="login" >
+     <ion-card-content>
+            <button ion-button  block color="sinfondo" (click)="IniciarSession()"   [disabled]="ERROR">
+         <h1> <ion-icon name="people"></ion-icon>Iniciar Sessión</h1>
+
+        </button> 
+     </ion-card-content>
+      </ion-card>
+     
+    <ion-card color="ran">
+         
+     <ion-card-content>
+          <button ion-button  block color="sinfondo" (click)="ranking()" [disabled]="!ERROR">
+         <h1><ion-icon ios="ios-pulse" md="md-pulse"></ion-icon> Ranking</h1>
  </button>
+     </ion-card-content>
+        </ion-card>
 
-        <button ion-button color="ran" col-5>
-<ion-icon ios="ios-pulse" md="md-pulse"></ion-icon>
-      Ranking
-  </button>
-
-    </ion-row>
-
-<br>
-    <h1>METODOLOGÍA KANBAN</h1>
-
+        <ion-card color="ran">
+         
+                <ion-card-content>
+                     <button ion-button  block color="sinfondo" (click)="Creditos()" [disabled]="!ERROR">
+                    <h1><ion-icon ios="ios-pulse" md="md-pulse"></ion-icon> Creditos</h1>
+            </button>
+                </ion-card-content>
+                   </ion-card>
+        
+       
+         
 </ion-content>

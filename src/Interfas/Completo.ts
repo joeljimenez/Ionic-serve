@@ -1,4 +1,4 @@
-export interface Preguntas {
+export interface Completa {
     Id_Pregunta: string;
     Pregunta: string;
     Correcta: number;
@@ -9,5 +9,8 @@ export interface Preguntas {
     Fecha: any;
     FechaA: any;
     Dificultad: number;
+    respondida:boolean;
+    terminada:boolean;
+    habilitado:boolean;
 }
 

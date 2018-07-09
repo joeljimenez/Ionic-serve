@@ -7,7 +7,7 @@
 
   <ion-content padding>
 
-<form (ngSubmit)="Registrar()" >
+<form (ngSubmit)="Registrar()" [formGroup]="forma"  >
 <ion-card >
   <ion-title text-center padding color="fondo">  <ion-icon name="pricetags"></ion-icon>Ingrese Los datos</ion-title>
 <ion-grid text-center>
@@ -15,40 +15,55 @@
     <ion-col >
     <ion-item>
       <ion-label floating><ion-icon name="contact" class="nombre"> Nombre</ion-icon></ion-label>
-      <ion-input type="text"  required> </ion-input>
+      <ion-input type="text"  required [(ngModel)]="Data_Usuario.Nombre" formControlName="Nombre" > </ion-input>
     </ion-item>
-    <ion-item *ngIf="requerido">
-      <p></p>
+    <ion-item  class="requerido" *ngIf="forma.controls['Nombre']. errors?.required">
+        <ion-icon name="close" class="requerido"> Nombre es Requerido </ion-icon>
+  
+    </ion-item>
+    <ion-item  *ngIf="forma.controls['Nombre'].errors?.minlength ">
+        <ion-icon name="information" class="Ad">  Minimo 5 Carracteres  </ion-icon>
+      
     </ion-item>
   </ion-col>
 
 <ion-col>
 <ion-item>
  <ion-label floating><ion-icon name="person" class="nombre"> Apellido</ion-icon></ion-label>
- <ion-input type="text"  required> </ion-input>
+ <ion-input type="text"  required [(ngModel)]="Data_Usuario.Apellido" formControlName="Apellido" > </ion-input>
 </ion-item>
-<ion-item *ngIf="requerido">
- <p></p>
+<ion-item  *ngIf="forma.controls['Apellido']. errors?.required">
+  <ion-icon name="close" class="requerido">Apellido es Requerido</ion-icon>
+
+</ion-item>
+<ion-item  *ngIf="forma.controls['Apellido'].errors?.minlength ">
+  <ion-icon name="information" class="Ad">Minimo 5 Carracteres</ion-icon>
 </ion-item>
 </ion-col>
 
 <ion-col>
 <ion-item>
 <ion-label floating><ion-icon ios="ios-locate" md="md-locate" class="nombre"> Cédula</ion-icon></ion-label>
-<ion-input type="text"  required> </ion-input>
+<ion-input type="text"  required [(ngModel)]="Data_Usuario.Cedula" formControlName="Cedula" > </ion-input>
 </ion-item>
-<ion-item *ngIf="requerido">
-<p></p>
+<ion-item  *ngIf="forma.controls['Cedula']. errors?.required">
+  <ion-icon name="close" class="requerido">La Cedula es Requerid</ion-icon>
+</ion-item>
+<ion-item  *ngIf="forma.controls['Cedula'].errors?.minlength ">
+ <ion-icon name="information" class="Ad">Minimo 5 Carracteres</ion-icon>
 </ion-item>
 </ion-col>
 
 <ion-col>
 <ion-item>
 <ion-label floating><ion-icon name="key" class="nombre"> Clave de seguridad</ion-icon></ion-label>
-<ion-input type="text"  required > </ion-input>
+<ion-input type="text"  required  [(ngModel)]="Data_Usuario.claveSeguridad" formControlName="claveSeguridad" > </ion-input>
 </ion-item>
-<ion-item *ngIf="requerido">
-<p></p>
+<ion-item  *ngIf="forma.controls['claveSeguridad']. errors?.required">
+ <ion-icon name="close" class="requerido">La Seguridad es Requerida</ion-icon>
+</ion-item>
+<ion-item  *ngIf="forma.controls['claveSeguridad'].errors?.minlength ">
+  <ion-icon name="information" class="Ad">Minimo 5 Carracteres</ion-icon>
 </ion-item>
 </ion-col>
   </ion-row>
@@ -60,32 +75,56 @@
     <ion-item>
       <ion-label floating><ion-icon ios="ios-person" md="md-person" class="nombre"> Usuario</ion-icon>
 </ion-label>
-      <ion-input type="text"  required> </ion-input>
+      <ion-input type="text"  required [(ngModel)]="Data_Usuario.UsuarioS" formControlName="Usuario" (keyup)="Validar()" > </ion-input>
     </ion-item>
-    <ion-item *ngIf="requerido">
-      <p></p>
+    <ion-item  *ngIf="forma.controls['Usuario']. errors?.required">
+      <ion-icon name="close" class="requerido">El Usuario es Requerida</ion-icon>
+    </ion-item>
+    <ion-item  *ngIf="forma.controls['Usuario'].errors?.minlength ">
+      <ion-icon name="information" class="Ad">Minimo 5 Carracteres</ion-icon>
+    </ion-item>
+    <ion-item  *ngIf="usu" class="requerido">
+      <ion-icon ios="ios-person" md="md-person" class="requerido">{{mensa}}</ion-icon>
     </ion-item>
     </ion-col>
 
     <ion-col>
     <ion-item>
       <ion-label floating><ion-icon ios="ios-key" md="md-key" class="nombre"> Contraseña</ion-icon></ion-label>
-      <ion-input type="text"  required> </ion-input>
+      <ion-input type="password"  required [(ngModel)]="Data_Usuario.Contra" formControlName="Contra" > </ion-input>
     </ion-item>
-    <ion-item *ngIf="requerido">
-      <p></p>
+    <ion-item  *ngIf="forma.controls['Contra']. errors?.required">
+      <ion-icon name="close" class="requerido">La Contraseña es Requerida</ion-icon>
+    </ion-item>
+    <ion-item  *ngIf="forma.controls['Contra'].errors?.pattern ">
+      <ion-icon name="information" class="Ad">Contraseña Invalida</ion-icon>
     </ion-item>
     </ion-col>
 
     <ion-col>
     <ion-item>
       <ion-label floating><ion-icon ios="ios-lock" md="md-lock" class="nombre"> Verificacion de Contraseña</ion-icon></ion-label>
-      <ion-input type="text"  required> </ion-input>
+      <ion-input type="password"  required [(ngModel)]="veri" formControlName="veri" > </ion-input>
     </ion-item>
-    <ion-item *ngIf="requerido">
-      <p></p>
+    <ion-item  *ngIf="forma.controls['veri']. errors?.required">
+     <ion-icon name="close" class="requerido">La Contraseña es Requerida</ion-icon>
+    </ion-item>
+    <ion-item  class="requerido" *ngIf="forma.controls['veri'].errors?.noiguales">
+      <ion-icon name="information" class="Ad">Contraseña Incorrecta</ion-icon>
     </ion-item>
     </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label floating><ion-icon ios="ios-lock" md="md-lock" class="nombre">Correo Electronico</ion-icon></ion-label>
+        <ion-input type="email"  required [(ngModel)]="Data_Usuario.Correo_Elec" formControlName="Correo_Elec" > </ion-input>
+      </ion-item>
+      <ion-item  *ngIf="forma.controls['Correo_Elec']. errors?.required">
+       <ion-icon name="close" class="requerido">El Correo es Requerida</ion-icon>
+      </ion-item>
+      <ion-item  *ngIf="forma.controls['Correo_Elec'].errors?.pattern ">
+        <ion-icon name="information" class="Ad">El correo Es Incorecto</ion-icon>
+      </ion-item>
+      </ion-col>
   </ion-row>
 </ion-grid>
 
@@ -94,29 +133,44 @@
     <ion-col>
     <ion-item>
       <ion-label floating><ion-icon ios="ios-paper" md="md-paper" class="nombre"> Carerra Universitaria</ion-icon></ion-label>
-      <ion-input type="text"  required> </ion-input>
+      <ion-input type="text"  required [(ngModel)]="Data_Usuario.Carrera_Uni" formControlName="Carrera_Uni" > </ion-input>
     </ion-item>
-    <ion-item *ngIf="requerido">
-      <p></p>
+
+    <ion-item  *ngIf="forma.controls['Carrera_Uni']. errors?.required">
+     <ion-icon name="close" class="requerido">La Carrera es Requerida</ion-icon>
     </ion-item>
+    <ion-item  *ngIf="forma.controls['Carrera_Uni'].errors?.minlength ">
+      <ion-icon name="information" class="Ad">Minimo 5 Carracteres</ion-icon>
+    </ion-item>
+
     </ion-col>
     <ion-col>
     <ion-item >
       <ion-label floating>  <ion-icon ios="ios-school" md="md-school" class="nombre"> Año que Cursa</ion-icon></ion-label>
-      <ion-input type="text"  required> </ion-input>
+      <ion-input type="number"  required [(ngModel)]="Data_Usuario.Annio" formControlName="Annio" > </ion-input>
     </ion-item>
-    <ion-item *ngIf="requerido">
-      <p></p>
+
+    <ion-item  *ngIf="forma.controls['Annio']. errors?.required">
+      <ion-icon name="close" class="requerido">El Año es Requerida</ion-icon>
     </ion-item>
+    <ion-item  *ngIf="forma.controls['Annio'].errors?.maxLength">
+      <ion-icon name="information" class="Ad">Maximo 2 Carracteres</ion-icon>
+    </ion-item>
+
     </ion-col>
     <ion-col>
     <ion-item >
       <ion-label floating>   <ion-icon ios="ios-happy" md="md-happy" class="nombre">Edad</ion-icon></ion-label>
-      <ion-input type="text"  required> </ion-input>
+      <ion-input type="number"  required [(ngModel)]="Data_Usuario.Edad" formControlName="Edad" > </ion-input>
     </ion-item>
-    <ion-item *ngIf="requerido">
-      <p></p>
+
+    <ion-item  *ngIf="forma.controls['Edad']. errors?.required">
+      <ion-icon name="close" class="requerido">La Edad es Requerida</ion-icon>
     </ion-item>
+    <ion-item  *ngIf="forma.controls['Edad'].errors?.maxLength">
+      <ion-icon name="information" class="Ad">Maximo 2 Carracteres</ion-icon>
+    </ion-item>
+
     </ion-col>
   </ion-row>
 </ion-grid>
@@ -125,11 +179,12 @@
 
 <ion-grid>
   <ion-row>
-    <ion-col><button ion-button color="jugar" block type="submit"><ion-icon ios="ios-send" md="md-send"  > </ion-icon>Registrar Jugador</button></ion-col>
-    <ion-col><button ion-button color="jugar" block (click)="Cancelar()">  <ion-icon ios="ios-backspace" md="md-backspace"></ion-icon>cancelar</button></ion-col>
-
+    <ion-col><button ion-button color="jugar" block type="submit" [disabled]="!forma.valid" ><ion-icon ios="ios-send" md="md-send"  > </ion-icon>Registrar Jugador</button></ion-col>
+   
   </ion-row>
 </ion-grid>
 </form>
+ <ion-col><button ion-button color="jugar" block (click)="Cancelar()">  <ion-icon ios="ios-backspace" md="md-backspace"></ion-icon>cancelar</button></ion-col>
+  
 
-  </ion-content>
+</ion-content>

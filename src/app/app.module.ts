@@ -2,15 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { StatusBar } from '@ionic-native/status-bar';
-//firedatabase
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 //servicio
 import { BaseDatos } from '../Servicio/ServicioBase';
-//pipes
-import { LlavePipe } from '../pipes/llave/llave';
+ import { PruebaService } from '../Servicio/Prueba';
+ 
 //directive
 import {TocarDirective} from '../directives/tocar';
 
@@ -25,40 +24,40 @@ import {TabsPage} from '../pages/tabs/tabs';
 import {ModalPage} from '../pages/modal/modal';
 import { ModalSessionPage } from '../pages/modal-session/modal-session';
 import {RegistrarsePage} from '../pages/registrarse/registrarse';
+import { RankingPage } from '../pages/ranking/ranking';
+import { NivelPipe } from '../Pipes/Nivel';
+import { CreditosPage } from '../pages/creditos/creditos';
 
-
-export const firebaseConfig = {
-  apiKey: "AIzaSyAHUkrHQjncDmjhO2ERtQlZMNGUsIb7ICU",
-  authDomain: "pregu-3c8e4.firebaseapp.com",
-  databaseURL: "https://pregu-3c8e4.firebaseio.com",
-  projectId: "pregu-3c8e4",
-  storageBucket: "pregu-3c8e4.appspot.com",
-  messagingSenderId: "451422552347"
-};
-
+// storage
+import { IonicStorageModule } from '@ionic/storage';
 @NgModule({
   declarations: [
     MyApp,
     PrincipalPage,
     Pagina1Page,
-PagesPagina2Page,
+    PagesPagina2Page,
     AjustesPage,
     Ajustes2Page,
     TabsPage,
     ModalPage,
-    LlavePipe,
+    NivelPipe,
     ModalSessionPage,
     TocarDirective,
-    RegistrarsePage
+    RegistrarsePage,
+    RankingPage,
+    CreditosPage
 
 
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpModule,
+   
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -71,13 +70,16 @@ PagesPagina2Page,
     TabsPage,
     ModalPage,
     ModalSessionPage,
-    RegistrarsePage
+    RegistrarsePage,
+    RankingPage,
+    CreditosPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    AngularFireDatabase,
     BaseDatos,
+    PruebaService,
+    ModalSessionPage,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
